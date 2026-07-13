@@ -14,7 +14,9 @@ function UpdateProduct() {
   }, [id]);
 
   const fetchProductData = async () => {
-    let result = await fetch(`http://localhost:3000/getProduct/${id}`);
+    let result = await fetch(
+      `https://ecommerce-mern-production-0d80.up.railway.app/getProduct/${id}`,
+    );
 
     result = await result.json();
 
@@ -26,13 +28,16 @@ function UpdateProduct() {
   };
 
   const updateProductData = async (id) => {
-    let result = await fetch(`http://localhost:3000/update/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
+    let result = await fetch(
+      `https://ecommerce-mern-production-0d80.up.railway.app/update/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productData),
       },
-      body: JSON.stringify(productData),
-    });
+    );
 
     result = await result.json();
     if (result.success) {

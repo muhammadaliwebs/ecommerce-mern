@@ -23,10 +23,13 @@ function AddProduct() {
     formData.append("shopName", productData.shopName);
     formData.append("image", productData.image);
 
-    let result = await fetch("http://localhost:3000/addProduct", {
-      method: "POST",
-      body: formData,
-    });
+    let result = await fetch(
+      "https://ecommerce-mern-production-0d80.up.railway.app/addProduct",
+      {
+        method: "POST",
+        body: formData,
+      },
+    );
 
     console.log("Response Status:", result.status);
 

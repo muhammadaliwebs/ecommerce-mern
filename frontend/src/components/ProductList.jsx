@@ -10,7 +10,9 @@ function ProductList() {
   }, []);
 
   const fetchData = async () => {
-    let list = await fetch("http://localhost:3000/getProducts");
+    let list = await fetch(
+      "https://ecommerce-mern-production-0d80.up.railway.app/getProducts",
+    );
     list = await list.json();
 
     console.log("Fetched Products:", list);
@@ -41,9 +43,12 @@ function ProductList() {
     console.log(result);
 
     if (result.isConfirmed) {
-      let response = await fetch(`http://localhost:3000/delete/${id}`, {
-        method: "DELETE",
-      });
+      let response = await fetch(
+        `https://ecommerce-mern-production-0d80.up.railway.app/delete/${id}`,
+        {
+          method: "DELETE",
+        },
+      );
 
       response = await response.json();
 
@@ -91,7 +96,7 @@ function ProductList() {
               {/* Product Image */}
 
               <img
-                src={`http://localhost:3000/uploads/${product.image}`}
+                src={`https://ecommerce-mern-production-0d80.up.railway.app/uploads/${product.image}`}
                 alt={product.name}
                 className="h-56 w-full object-cover"
               />
